@@ -1,0 +1,22 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-edge": "^1.0.0",
+    "express-fileupload": "^1.0.0",
+    "mongoose": "^5.3.9"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.6"
+  }
+}
