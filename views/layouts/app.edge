@@ -21,8 +21,7 @@
 @!section('style')
     <!-- Custom styles for this template -->
     <link href="/css/clean-blog.min.css" rel="stylesheet">
-@!section('welcomestyle')
-  <link href="css/full-width-pics.css" rel="stylesheet">
+
   </head>
 
   <body style="background: #343a40; color: white">
@@ -30,7 +29,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" style="background: black; border-bottom-color: gray">
       <div class="container">
-        <a class="navbar-brand" href="/feed">
+        <a class="navbar-brand" href="/">
           <img src= "/img/yodakod.png" alt="yodakod App Badge Icon" style="width:50px;">
           <img src= "/img/yodakodlogo3.png" alt="yodakod App Badge Icon" style="width:150px;">
         </a>
@@ -40,27 +39,15 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            @if(!auth)
             <li class="nav-item">
-                <a class="nav-link" href="/" style="color:white">Welcome</a>
-              </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/auth/login" style="color:white">Login</a>
+              <a class="nav-link" href="/" style="color:white">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/auth/register" style="color:white">Register</a>
-            </li>
-          @else
-          <li class="nav-item">
-              <a class="nav-link" href="/feed" style="color:white">Feed</a>
-            </li>
-          <li class="nav-item">
+             <li class="nav-item">
               <a class="nav-link" href="/posts/new" style="color:white">New Post</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/auth/logout" style="color:white">Logout</a>
+              <a class="nav-link" href="/about" style="color:white">About Me</a>
             </li>
-          @endif
           </ul>
         </div>
       </div>
