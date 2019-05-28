@@ -13,7 +13,7 @@ module.exports = (req, res)=>{
 			...req.body,
 			image: `/posts/${image.name}`
 		}, (error, post)=>{
-			res.redirect('/');
+			res.redirect('/feed');
 	});
 
 	});

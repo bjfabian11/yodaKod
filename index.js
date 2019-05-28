@@ -24,9 +24,9 @@ const app = new express();
 
 mongoose.set('useCreateIndex', true);
 //MongoDB Local DB Connection
-mongoose.connect('mongodb://localhost/blog',{ useNewUrlParser: true })
+// mongoose.connect('mongodb://localhost/blog',{ useNewUrlParser: true })
 //MondoDB+Server Cloud Atlas Connection
-// mongoose.connect('mongodb+srv://bjfabian11:Bj11mongodb!@yodakod-4ntpf.azure.mongodb.net/test?retryWrites=true',{ useNewUrlParser: true})
+mongoose.connect('mongodb+srv://bjfabian11:Bj11mongodb!@yodakod-4ntpf.azure.mongodb.net/test?retryWrites=true',{ useNewUrlParser: true})
 	.then(() => 'You are now connected to Mongo!')
 	.catch(err => console.error('Something went wrong', err));
 
@@ -64,7 +64,7 @@ const redirectIfAuthenticated = require('./middleware/redirectIfAuthenticated')
 app.use('/posts/store', storePost);
 
 app.get('/feed', auth, feedController);
-app.get('/', welcomeController);
+app.get('/', redirectIfAuthenticated, welcomeController);
 app.get('/post/:id', auth, getPostController);
 app.get('/posts/new', auth, createPostController);
 app.post('/posts/store', auth, storePost, storePostController);
