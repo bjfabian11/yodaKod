@@ -15,13 +15,20 @@ module.exports = (req, res) => {
             bcrypt.compare(password, user.password, (error, same) => {
                 if (same) {
                     req.session.userId = user._id
-                    res.redirect('/feed')
+                    req.session.save(function(){
+                        res.redirect('/feed');
+                    })
+                    console.log('passwords matched')
                 } else {
-                    res.redirect('/auth/login')
+                    res.redirect('/')
+                    console.log('passwords did not match')
                 }
             })
-        } else {
-            return res.redirect('/auth/login')
+        } else {  
+            console.log('could not find user')
+            return res.redirect('/')
+            
+
         }
     })
 }

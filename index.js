@@ -13,11 +13,13 @@ const feedController = require('./controllers/feed');
 const storePostController = require('./controllers/storePost');
 const getPostController = require('./controllers/getPost');
 const welcomeController = require('./controllers/welcome');
+const profileController = require('./controllers/profile');
 const createUserController = require('./controllers/createUser');
 const storeUserController = require('./controllers/storeUser');
 const loginController = require('./controllers/login');
 const loginUserController = require('./controllers/loginUser');
 const logoutController = require("./controllers/logout");
+
 
 
 const app = new express();
@@ -60,13 +62,15 @@ app.use(bodyParser.urlencoded({ extended: true}));
 const storePost = require('./middleware/storePost');
 const auth = require("./middleware/auth");
 const redirectIfAuthenticated = require('./middleware/redirectIfAuthenticated')
+const logoutClearcache = require("./middleware/logoutClearcache");
 
 app.use('/posts/store', storePost);
 
-app.get('/feed', auth, feedController);
+app.get('/feed', auth, logoutClearcache, feedController);
 app.get('/', redirectIfAuthenticated, welcomeController);
+app.get('/profile', auth, logoutClearcache, profileController);
 app.get('/post/:id', auth, getPostController);
-app.get('/posts/new', auth, createPostController);
+app.get('/posts/new', auth, logoutClearcache, createPostController);
 app.post('/posts/store', auth, storePost, storePostController);
 app.get('/auth/login', redirectIfAuthenticated, loginController);
 app.post('/users/login', redirectIfAuthenticated, loginUserController);
