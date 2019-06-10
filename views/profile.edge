@@ -2,15 +2,24 @@
 
 @section('content')
 
+<!-- Page Header -->
 
-
-    <!-- Main Content -->
+<!-- Main Content -->
 <div class="container" style="margin-top:160px">
-  <h2 style="text-transform: uppercase"> {{ user.username }}'s page </h2>
-  <div class="card-group py-3 bg-dark">     
+    <div class="card" style="background-color:#272727">
+      <h5 class="card-header"style="text-transform: uppercase; background:green"><img src="{{ userprofile.image }}" style="height:70px; width: 70px; border-radius:50%; object-fit: cover"> {{ user.username }}</h5>
+      <div class="card-body">
+        <h5 class="card-title">Name: {{ userprofile.firstName }} {{ userprofile.lastName }}</h5>
+        <p>Github: {{ userprofile.link1 }}</p>
+        <p>Website: {{ userprofile.link2 }}</p>
+        <p>Bio: {{ userprofile.bio }} </p>
+        <a style="border-radius:50px 20px; padding: 5px 10px" href="/userprofile/new" class="btn btn-success">Update Profile</a>
+      </div>
+   
+  <div class="card-group py-3">     
     @each(post in posts)   
     <div class="col-md-4 d-flex align-items-stretch">
-      <div class="card mb-3">
+      <div class="card mb-3" style="background:#f3f3f3">
         <a href="/post/{{ post._id }}">
         <img class="card-img-top" src="{{ post.image }}" alt="Card image cap">
         <div class="card-body">
@@ -29,7 +38,7 @@
     </div>
     @endeach
   </div>
-</div>
+</div> </div>
 <hr>
 
 @endsection

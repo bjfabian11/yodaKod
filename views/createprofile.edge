@@ -1,0 +1,79 @@
+@layout('layouts.app')
+
+@section('content')
+
+<!-- Page Header -->
+
+<!-- Main Content -->
+<div class="container" style="margin-top:160px">
+    <h2>Profile</h2>
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <form action="/userprofile/store" method="POST" encType="multipart/form-data">
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                             <label>Username</label>
+                            <input type="hidden" class="form-control" value="{{user.username}}" name="username" required>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                             <label>First Name</label>
+                            <input type="text" class="form-control" placeholder="First Name" name="firstName" required>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                             <label>Last Name</label>
+                            <input type="text" class="form-control" placeholder="Last Name" name="lastName" required>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                             <label>Link 1</label>
+                            <input type="text" class="form-control" placeholder="Github URL" name="link1">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                             <label>Link 2</label>
+                            <input type="text" class="form-control" placeholder="Website 2" name="link2">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                             <label>Bio</label>
+                           <textarea  name="bio" cols="25" rows="10" class="form-control" placeholder="Bio..."></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <div class="form-group floating-label-form-group controls">
+                            <input type="file" name="image" class="form-control-file" required>
+                        </div>
+                    </div>
+                    <div class="form-group my-4 text-center">
+                        <button class="btn btn-success">Create Bio</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+@endsection
+
+@section('style')
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.css" rel="stylesheet">
+    
+
+@endsection
+
+@section('scripts')
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-bs4.js"></script>
+
+   <script>
+      $('#content').summernote();
+    </script>
+
+@endsection
