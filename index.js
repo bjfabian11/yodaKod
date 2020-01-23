@@ -30,8 +30,8 @@ mongoose.set('useCreateIndex', true);
 //MongoDB Local DB Connection
 // mongoose.connect('mongodb://localhost/blog',{ useNewUrlParser: true })
 //MondoDB+Server Cloud Atlas Connection
-mongoose.connect('mongodb+srv://bjfabian11:Bj11mongodb!@yodakod-4ntpf.azure.mongodb.net/test?retryWrites=true',{ useNewUrlParser: true})
-	.then(() => 'You are now connected to Mongo!')
+mongoose.connect('mongodb+srv://bjfabian11:Bj11mongodb!@yodakod-4ntpf.azure.mongodb.net/test?retryWrites=true',{ useUnifiedTopology: true, useNewUrlParser: true})
+	.then(() => console.log('You are now connected to Mongo!'))
 	.catch(err => console.error('Something went wrong', err));
 
 app.use(connectFlash());	
