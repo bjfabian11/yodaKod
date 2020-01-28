@@ -85,6 +85,6 @@ app.post('/users/register', redirectIfAuthenticated, storeUserController);
 app.get("/auth/logout", logoutController);
 app.use((req, res)=> res.render('not-found'));
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 5500, () => {
 	console.log("app is listening on port 3000");	
 });
